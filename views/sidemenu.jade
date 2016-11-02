@@ -1,0 +1,13 @@
+mixin sidelink(title, path, cssName)
+	li(class='#{cssName}')
+		a(href='#{path}') #{title}
+
+div#sidebar-wrapper
+	ul.sidebar-nav
+		+sidelink('Start', '/', 'sidebar-brand')
+		+sidelink('User Management', '/users')
+		+sidelink('Shortcuts', '/')
+		+sidelink('Overview', '/')
+		+sidelink('Events', '/')
+		+sidelink('About', '/')
+		+sidelink('Services', '/')

@@ -1,0 +1,54 @@
+mixin formrow(identificador, texto, rotulo)
+	input(class='form-control', id='input#{identificador}',type='text', placeholder='#{texto}')
+
+extends layout
+
+block content
+	h1= title
+	p Welcome to our test
+
+	// Wrapper
+	#wrapperUser.container
+		.row
+			// ADD USER
+			.col-md-12
+				
+				h2#titleForm(onclick='toggleForm') Add User
+				#formUser(style='display:none')
+					form#addUser.container
+						.row
+							.col-md-6
+								.form-group
+									+formrow('UserName','Username', 'Username')
+								.form-group
+									+formrow('UserEmail','Email', 'E-mail')		
+								.form-group
+									+formrow('Fullname','Full Name', 'Full Name')
+								.form-group
+									+formrow('UserAge','Age', 'Age')
+								.form-group
+									+formrow('UserLocation','Location', 'Location')
+								.form-group
+									+formrow('UserGender','Gender', 'Gender')
+							.col-md-6
+								input(type='file', name='...')
+						
+						button#btnAddUser.btn.btn-default Add
+			// /ADD USER
+		
+		.row
+			// USER LIST
+			.col-md-12
+				h2 User List
+				#formUserList
+					table#userList.table.table-hover
+						thead
+							th UserName
+							th Email
+							th Delete?
+						tbody
+			// /USER LIST
+
+		
+
+	// /WRAPPER
