@@ -5,7 +5,7 @@ var router = express.Router();
  * GET userlist. 
  */
 router.get('/', function(req, res){
-    res.render('users', {title : "Add New User"})
+    res.render('users', {title : "User Management"})
 })
 
 /*

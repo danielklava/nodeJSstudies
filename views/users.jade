@@ -5,7 +5,6 @@ extends layout
 
 block content
 	h1= title
-	p Welcome to our test
 
 	// Wrapper
 	#wrapperUser.container
@@ -13,27 +12,31 @@ block content
 			// ADD USER
 			.col-md-12
 				
-				h2#titleForm(onclick='toggleForm') Add User
-				#formUser(style='display:none')
-					form#addUser.container
-						.row
-							.col-md-6
-								.form-group
-									+formrow('UserName','Username', 'Username')
-								.form-group
-									+formrow('UserEmail','Email', 'E-mail')		
-								.form-group
-									+formrow('Fullname','Full Name', 'Full Name')
-								.form-group
-									+formrow('UserAge','Age', 'Age')
-								.form-group
-									+formrow('UserLocation','Location', 'Location')
-								.form-group
-									+formrow('UserGender','Gender', 'Gender')
-							.col-md-6
-								input(type='file', name='...')
-						
-						button#btnAddUser.btn.btn-default Add
+				button.btn.btn-primary(type='button', data-toggle='modal', data-target='#myModal') Add user
+				#myModal.modal.fade(role='dialog')
+					.modal-dialog(role='document')
+						.modal-content
+							.modal-header
+								h2 Add User
+							.modal-body
+								form#addUser
+									.row
+										.col-md-12
+											.form-group
+												+formrow('UserName','Username', 'Username')
+											.form-group
+												+formrow('UserEmail','Email', 'E-mail')		
+											.form-group
+												+formrow('UserFullname','Full Name', 'Full Name')
+											.form-group
+												+formrow('UserAge','Age', 'Age')
+											.form-group
+												+formrow('UserLocation','Location', 'Location')
+											.form-group
+												+formrow('UserGender','Gender', 'Gender')
+							.modal-footer
+								button.btn.btn-default(type='button', data-dismiss='modal') Close
+								button#btnAddUser.btn.btn-primary(type='button', data-dismiss='modal') Add
 			// /ADD USER
 		
 		.row
@@ -43,11 +46,36 @@ block content
 				#formUserList
 					table#userList.table.table-hover
 						thead
+							th
 							th UserName
 							th Email
 							th Delete?
 						tbody
 			// /USER LIST
+
+			#modalUserInfo.modal.fade(role='dialog')
+				.modal-dialog(role='document')
+					.modal-content
+						.modal-header
+							h2 INFO
+						.modal-body
+							.row
+								.col-md-12
+									strong Name:
+									|  <span id='userInfoName'></span>
+							.row
+								.col-md-12
+									strong Age:
+									|  <span id='userInfoAge'></span>
+							.row
+								.col-md-12
+									strong Gender:
+									|  <span id='userInfoGender'></span>
+							.row
+								.col-md-12
+									strong Location:
+									|  <span id='userInfoLocation'></span>
+						.modal-footer
 
 		
 

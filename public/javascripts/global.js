@@ -41,7 +41,8 @@ function populateTable(){
 		// For each item in our JSON, add a table row and cells to the content string.
 		$.each(data, function(){
 			tableContent += '<tr>';
-			tableContent += '<td><a href="#" class="linkshowuser" rel="' + this.username + '">' + this.username + '</a></td>';
+            tableContent += '<td><a href="#" class="linkshowuser" rel="' + this.username + '">details</td>';
+			tableContent += '<td>' + this.username + '</a></td>';
 			tableContent += '<td>' + this.email + '</td>';
 			tableContent += '<td><a href="#" class="linkdeleteuser" rel="' + this._id + '">delete</a></td>';
 			tableContent += '</tr>';
@@ -74,6 +75,8 @@ function showUserInfo(event) {
     $('#userInfoGender').text(thisUserObject.gender);
     $('#userInfoLocation').text(thisUserObject.location);
 
+    $('#modalUserInfo').modal();
+
 };
 
 // Add User
@@ -87,7 +90,7 @@ function addUser(event) {
     });
 
     // Check and make sure errorCount's still at zero
-    if(errorCount === 0) {
+    if(errorCount === 0 || true) {
 
         // If it is, compile all user info into one object
         var newUser = {
@@ -111,7 +114,7 @@ function addUser(event) {
             if (response.msg === '') {
 
                 // Clear the form inputs
-                $('#addUser fieldset input').val('');
+                $('#addUser input').val('');
 
                 // Update the table
                 populateTable();
