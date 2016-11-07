@@ -34,6 +34,15 @@ block content
 												+formrow('UserLocation','Location', 'Location')
 											.form-group
 												+formrow('UserGender','Gender', 'Gender')
+											.form-group
+												fieldset
+													legend Choose a skill:
+													label(for='skill-power') Power
+													input(type='checkbox', name='power', id='skill-power')
+													label(for='skill-courage') Courage
+													input(type='checkbox', name='courage', id='skill-courage')
+													label(for='skill-wisdom') Wisdom
+													input(type='checkbox', name='wisdom', id='skill-wisdom')
 							.modal-footer
 								button.btn.btn-default(type='button', data-dismiss='modal') Close
 								button#btnAddUser.btn.btn-primary(type='button', data-dismiss='modal') Add
@@ -42,7 +51,6 @@ block content
 		.row
 			// USER LIST
 			.col-md-12
-				h2 User List
 				#formUserList
 					table#userList.table.table-hover
 						thead
@@ -59,24 +67,32 @@ block content
 						.modal-header
 							h2 INFO
 						.modal-body
-							.row
-								.col-md-12
-									strong Name:
-									|  <span id='userInfoName'></span>
-							.row
-								.col-md-12
-									strong Age:
-									|  <span id='userInfoAge'></span>
-							.row
-								.col-md-12
-									strong Gender:
-									|  <span id='userInfoGender'></span>
-							.row
-								.col-md-12
-									strong Location:
-									|  <span id='userInfoLocation'></span>
+							.form-inline
+								.row
+									.col-md-12
+										label Name:
+										|  <span id='userInfoName'></span>
+								.row
+									.col-md-12
+										label Name:
+										|  <span id='userInfoUsername'></span>
+								.row
+									.col-md-12
+										label Age:
+										|  <span id='userInfoAge'></span>
+								.row
+									.col-md-12
+										label Gender:
+										|  <span id='userInfoGender'></span>
+								.row
+									.col-md-12
+										label Location:
+										|  <span id='userInfoLocation'></span>
+								.row
+									.col-md-12
+										#userInfoSkills
 						.modal-footer
-
-		
-
 	// /WRAPPER
+
+block append scripts
+	script(src='/javascripts/script_users.js') 
